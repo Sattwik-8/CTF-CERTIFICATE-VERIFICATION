@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0xDAY CTF | IEEE HIT SB | Certificate Verify</title>
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- BOOT SCREEN -->
+  <div class="boot-screen" id="bootScreen">
+    <div class="boot-inner">
+      <div class="boot-logo">
+        <span class="boot-bracket">[</span>
+        <span class="boot-ieee">IEEE HIT SB</span>
+        <span class="boot-bracket">]</span>
+      </div>
+      <div class="boot-lines" id="bootLines"></div>
+      <div class="boot-bar-wrap">
+        <div class="boot-bar" id="bootBar"></div>
+      </div>
+      <p class="boot-status" id="bootStatus">Initializing...</p>
+    </div>
+  </div>
+
+  <!-- MAIN SITE (hidden until boot done) -->
+  <div class="site-wrap" id="siteWrap">
+
+    <!-- BG LAYERS -->
+    <canvas class="bg-particles" id="bgParticles"></canvas>
+    <div class="bg-grid"></div>
+    <div class="bg-scanlines"></div>
+    <div class="bg-vignette"></div>
+
+    <!-- ══ NAVBAR ══ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-inner">
+        <div class="nav-brand">
+          <img src="assets/logo.png" alt="IEEE HIT SB" class="nav-logo" onerror="this.style.display='none'" />
+          <div class="nav-brand-text">
+            <span class="nav-title">IEEE HIT SB</span>
+            <span class="nav-sub">0xDAY CTF · 2026</span>
+          </div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about"><span class="nav-num">01.</span> About</a></li>
+          <li><a href="#schedule"><span class="nav-num">02.</span> Schedule</a></li>
+          <li><a href="#certificates"><span class="nav-num">03.</span> Certificates</a></li>
+          <li><a href="#verify"><span class="nav-num">04.</span> Verify</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <p class="hero-tag" id="heroTag"></p>
+       <h1 class="hero-title">
+  <span class="glitch-o" id="glitchO" data-text="O">O</span><span class="glitch-rest" id="glitchRest" data-text="XDAY CTF">XDAY CTF</span>
+</h1>
+        <div class="hero-subtitle-row">
+          <div class="hero-line"></div>
+          <p class="hero-subtitle" id="heroSubtitle"></p>
+          <div class="hero-line hero-line-r"></div>
+        </div>
+        <p class="hero-date">
+          <span class="date-label">EVENT DATE :</span>
+          4 – 9<sup>th</sup> MAY, 2026
+        </p>
+        <div class="hero-cards">
+          <div class="hero-mini-card">
+            <span class="hmc-icon">⚡</span>
+            <span class="hmc-label">Learn</span>
+            <span class="hmc-desc">4-day workshop</span>
+          </div>
+          <div class="hero-mini-card">
+            <span class="hmc-icon">🚩</span>
+            <span class="hmc-label">Capture</span>
+            <span class="hmc-desc">Online CTF round</span>
+          </div>
+          <div class="hero-mini-card">
+            <span class="hmc-icon">🏆</span>
+            <span class="hmc-label">Dominate</span>
+            <span class="hmc-desc">Offline finals</span>
+          </div>
+        </div>
+        <div class="hero-btns">
+          <a href="#verify" class="btn btn-primary">
+            <span class="btn-icon">⟨</span> Verify Certificate <span class="btn-icon">⟩</span>
+          </a>
+          <a href="#about" class="btn btn-ghost">Explore Event ↓</a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>scroll</span>
+        <div class="scroll-bar"></div>
+      </div>
+    </section>
+
+    <!-- ══ ABOUT ══ -->
+    <section class="section" id="about">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-num">01</span>
+          <div>
+            <p class="section-tag">// about the event</p>
+            <h2 class="section-title">What is 0xDAY CTF?</h2>
+          </div>
+        </div>
+        <p class="section-desc reveal">
+          A 6-day cybersecurity event organized by IEEE HIT Student Branch. 
+          4 days of hands-on training followed by an online and offline 
+          Capture The Flag competition. Built for beginners. Designed for hackers.
+        </p>
+        <div class="stats-row reveal-group">
+          <div class="stat-box">
+            <span class="stat-num">06</span>
+            <span class="stat-label">Total Days</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">04</span>
+            <span class="stat-label">Workshop Days</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">02</span>
+            <span class="stat-label">CTF Rounds</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">03</span>
+            <span class="stat-label">Certificate Types</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SCHEDULE ══ -->
+    <section class="section section-alt" id="schedule">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-num">02</span>
+          <div>
+            <p class="section-tag">// event timeline</p>
+            <h2 class="section-title">6-Day Schedule</h2>
+          </div>
+        </div>
+        <div class="schedule-grid reveal-group">
+          <div class="sched-card">
+            <div class="sched-top">
+              <span class="sched-day">DAY 01 – 04</span>
+              <span class="sched-badge badge-cyan">WORKSHOP</span>
+            </div>
+            <div class="sched-icon">🛡️</div>
+            <h3 class="sched-title">Workshop & Training</h3>
+            <p class="sched-desc">Hands-on sessions covering web exploitation, cryptography, reverse engineering, OSINT, forensics and CTF tooling. Guided by IEEE HIT SB mentors.</p>
+            <div class="sched-footer">
+              <span class="sched-mode">📍 On-campus</span>
+            </div>
+          </div>
+          <div class="sched-card">
+            <div class="sched-top">
+              <span class="sched-day">DAY 05</span>
+              <span class="sched-badge badge-purple">ONLINE CTF</span>
+            </div>
+            <div class="sched-icon">🌐</div>
+            <h3 class="sched-title">Online CTF Round</h3>
+            <p class="sched-desc">Compete remotely. Solve flag-based challenges across all categories in a timed round. Every correct flag earns points on the live scoreboard.</p>
+            <div class="sched-footer">
+              <span class="sched-mode">🌐 Remote</span>
+            </div>
+          </div>
+          <div class="sched-card sched-card-gold">
+            <div class="sched-top">
+              <span class="sched-day">DAY 06</span>
+              <span class="sched-badge badge-gold">FINALS</span>
+            </div>
+            <div class="sched-icon">🏆</div>
+            <h3 class="sched-title">Offline CTF Finals</h3>
+            <p class="sched-desc">The grand finale. On-campus, head-to-head, real-time competition. Top scorers take the glory — and the winner certificate.</p>
+            <div class="sched-footer">
+              <span class="sched-mode">📍 On-campus · HIT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="topics-block reveal">
+          <p class="section-tag">// topics covered</p>
+          <div class="topics-wrap">
+            <span class="topic">Web Exploitation</span>
+            <span class="topic">Cryptography</span>
+            <span class="topic">Reverse Engineering</span>
+            <span class="topic">OSINT</span>
+            <span class="topic">Digital Forensics</span>
+            <span class="topic">Binary Exploitation</span>
+            <span class="topic">Network Analysis</span>
+            <span class="topic">Steganography</span>
+            <span class="topic">Linux Basics</span>
+            <span class="topic">CTF Tooling</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CERTIFICATES ══ -->
+    <section class="section" id="certificates">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-num">03</span>
+          <div>
+            <p class="section-tag">// certificate types</p>
+            <h2 class="section-title">What will you receive?</h2>
+          </div>
+        </div>
+        <p class="section-desc reveal">
+          Three distinct certificates — each embedded with a unique ID and QR code for instant verification.
+        </p>
+        <div class="cert-grid reveal-group">
+
+          <div class="cert-card cert-apt">
+            <div class="cert-glow"></div>
+            <div class="cert-header">
+              <span class="cert-icon">📘</span>
+              <div class="cert-badge badge-cyan">APT</div>
+            </div>
+            <p class="cert-type">APPRENTICESHIP CERTIFICATE</p>
+            <h3 class="cert-name">Training Certificate</h3>
+            <p class="cert-desc">Awarded to every attendee who completed the 4-day workshop. Recognises your commitment to learning cybersecurity fundamentals.</p>
+            <div class="cert-id-row">
+              <span class="cert-id-label">ID FORMAT</span>
+              <code class="cert-id-code">APT-XXXXX</code>
+            </div>
+          </div>
+
+          <div class="cert-card cert-par">
+            <div class="cert-glow"></div>
+            <div class="cert-header">
+              <span class="cert-icon">🚩</span>
+              <div class="cert-badge badge-purple">PAR</div>
+            </div>
+            <p class="cert-type">PARTICIPATION CERTIFICATE</p>
+            <h3 class="cert-name">Competitor Certificate</h3>
+            <p class="cert-desc">For every participant who competed in the CTF — online or offline. You showed up, you fought, you earned it.</p>
+            <div class="cert-id-row">
+              <span class="cert-id-label">ID FORMAT</span>
+              <code class="cert-id-code">PAR-XXXXX</code>
+            </div>
+          </div>
+
+          <div class="cert-card cert-win">
+            <div class="cert-glow"></div>
+            <div class="cert-header">
+              <span class="cert-icon">🏆</span>
+              <div class="cert-badge badge-gold">WIN</div>
+            </div>
+            <p class="cert-type">WINNER CERTIFICATE</p>
+            <h3 class="cert-name">Champion Certificate</h3>
+            <p class="cert-desc">Exclusively for the top 3 finishers of the offline CTF finals. Rare. Earned. Respected.</p>
+            <div class="cert-id-row">
+              <span class="cert-id-label">ID FORMAT</span>
+              <code class="cert-id-code">WIN-XXXXX</code>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VERIFY ══ -->
+    <section class="section section-alt" id="verify">
+      <div class="section-inner">
+        <div class="section-header reveal" style="justify-content:center;text-align:center">
+          <span class="section-num">04</span>
+          <div>
+            <p class="section-tag">// certificate verification</p>
+            <h2 class="section-title">Verify your certificate</h2>
+          </div>
+        </div>
+        <p class="section-desc reveal" style="text-align:center;margin-left:auto;margin-right:auto;">
+          Enter the Certificate ID printed on your certificate to instantly verify its authenticity.
+        </p>
+
+        <div class="terminal-wrap reveal">
+          <div class="terminal">
+
+            <!-- Terminal top bar -->
+            <div class="term-topbar">
+              <div class="term-dots">
+                <span class="tdot tdot-r"></span>
+                <span class="tdot tdot-y"></span>
+                <span class="tdot tdot-g"></span>
+              </div>
+              <span class="term-title">root@ieeehitsb — verify — zsh</span>
+              <span class="term-tag">SECURE</span>
+            </div>
+
+            <!-- Terminal body -->
+            <div class="term-body">
+              <div class="term-lines">
+                <p class="term-line"><span class="tl-prompt">root@ieeehitsb</span><span class="tl-path">:~/0xday-ctf$</span> <span class="tl-cmd">./cert-verify --interactive</span></p>
+                <p class="term-line tl-dim">Connecting to certificate registry...</p>
+                <p class="term-line tl-ok">✔ Registry loaded — 0xDAY CTF 2026</p>
+                <p class="term-line tl-dim">Enter your Certificate ID to proceed:</p>
+              </div>
+
+              <div class="term-input-block">
+                <span class="term-caret">›</span>
+                <input
+                  type="text"
+                  id="certInput"
+                  class="term-input"
+                  placeholder="APT-00042 / PAR-00042 / WIN-00042"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <button class="term-run-btn" id="verifyBtn">
+                  RUN
+                </button>
+              </div>
+
+        <p class="term-hint">
+  Press <kbd>Enter</kbd> or click <kbd>RUN</kbd> · Formats: 
+  <code>APT-XXXXX</code> · <code>PAR-XXXXX</code> · <code>WIN-XXXXX</code>
+  <br/>
+  <span class="cert-hint">📄 Your Certificate ID is printed at the bottom of your certificate.</span>
+</p>
+            </div>
+
+          </div>
+
+          <!-- Result -->
+          <div class="result-wrap" id="resultWrap">
+            <div class="result-card" id="resultCard"></div>
+            <button class="result-reset" id="resetBtn">↩ verify another certificate</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        Designed &amp; maintained by <span class="footer-highlight">Team IEEE HIT SB</span> &nbsp;·&nbsp; © 2026
+      </p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/company/ieee-hit-student-branch/" target="_blank">LinkedIn ↗</a>
+        <a href="https://www.instagram.com/ieee_hit_sb/" target="_blank">Instagram ↗</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </div><!-- /site-wrap -->
+
+  <script src="js/main.js"></script>
+</body>
+</html>
