@@ -3,12 +3,11 @@
    Certificate Verification — style.css
    Palette: #120d2a · #a855f7 · #e040fb · #0891b2
 ══════════════════════════════════════════ */
-* {
-   outline: 1px solid red;
-}
 html, body {
     overflow-x: hidden;
     width: 100%;
+    margin:0;
+    padding:0;
 }
 :root {
   --bg:            #0d0a1a;
