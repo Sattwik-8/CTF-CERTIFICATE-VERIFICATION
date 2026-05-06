@@ -464,6 +464,7 @@ const fakeCert = {
         ⚠ DEMO MODE — Replace SHEET_ID in main.js to enable live verification
       </div>
     `;
+    
   }
 
   function reset() {
@@ -493,7 +494,41 @@ function checkURLParam() {
     }, 500);
   }
 }
+function initSlider() {
+  const slider   = document.getElementById('slider');
+  const prevBtn  = document.getElementById('sliderPrev');
+  const nextBtn  = document.getElementById('sliderNext');
+  const dotsWrap = document.getElementById('sliderDots');
+  if (!slider) return;
 
+  const slides = document.querySelectorAll('.slide');
+  const total  = slides.length;
+  let current  = 0;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = (index + total) % total;
+    slider.style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll('.slider-dot')
+      .forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  // Keyboard arrows
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+}
 /* ════════════════════════════════
    INIT ALL (called after boot)
 ════════════════════════════════ */
@@ -504,6 +539,7 @@ function initAll() {
   initNavbar();
   initReveal();
   initVerify();
+  initSlider(); // ← add this
   checkURLParam();
 }
 
